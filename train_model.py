@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score, classification_report
 
 # --- STEP 1: VERIFY DATA SOURCE ACCESSIBILITY ---
 if not os.path.exists('True.csv') or not os.path.exists('Fake.csv'):
-    print("❌ Error: 'True.csv' or 'Fake.csv' not found in folder! Please check your dataset path.")
+    print(" Error: 'True.csv' or 'Fake.csv' not found in folder! Please check your dataset path.")
     exit()
 
 print(">> Loading Dataset Files for Fake News Detector...")
@@ -40,7 +40,7 @@ def process_string(raw_text):
         return raw_text
     return ""
 
-print("🧹 Preprocessing text dataset rows (Please wait)...")
+print(" Preprocessing text dataset rows (Please wait)...")
 dataset['cleaned_text'] = dataset['text'].apply(process_string)
 
 features = dataset['cleaned_text']
