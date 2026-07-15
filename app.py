@@ -36,10 +36,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Render Application Headers
-st.title("🕵️ Fake News Detector")
+st.title(" Fake News Detector")
 st.markdown('<p class="app-description">Enter a news article below to check if it is Real or Fake in real-time.</p>', unsafe_allow_html=True)
 
-# 🛠️ SESSION STATE FOR INPUT FLUSHING
+#  SESSION STATE FOR INPUT FLUSHING
 if "reset_trigger" not in st.session_state:
     st.session_state["reset_trigger"] = 0
 
@@ -65,7 +65,7 @@ if analyze_action:
         st.warning("Please enter some text first!")
     else:
         if not os.path.exists('model.pkl') or not os.path.exists('vectorizer.pkl'):
-            st.error("❌ Error: Missing weights config! Please run 'python train_model.py' in your terminal first.")
+            st.error(" Error: Missing weights config! Please run 'python train_model.py' in your terminal first.")
         else:
             with open('model.pkl', 'rb') as saved_model:
                 news_classifier = pickle.load(saved_model)
@@ -77,6 +77,6 @@ if analyze_action:
             
             st.markdown("---")
             if class_outcome == 1:
-                st.error("🚨 WARNING: This news is likely FAKE!")
+                st.error(" WARNING: This news is likely FAKE!")
             else:
-                st.success("✅ RELIABLE: This news appears to be REAL.")
+                st.success(" RELIABLE: This news appears to be REAL.")
